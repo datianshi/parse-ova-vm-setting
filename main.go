@@ -66,8 +66,10 @@ func main() {
 		fmt.Println(err)
 		return
 	}
+	m := make(map[string]string)
 	for _, p := range environ.PropertySection.Properties {
-		fmt.Printf("%s \t", p.Value)
+		m[p.Key] = p.Value
 	}
+	fmt.Printf("%s\t%s\t%s\t%s\t%s\t%s", m["DNS"], m["admin_password"], m["gateway"], m["ip0"], m["netmask0"], m["ntp_servers"])
 	fmt.Println()
 }
